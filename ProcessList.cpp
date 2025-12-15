@@ -81,7 +81,6 @@ bool ProccessList::remove(int pid){
         while (node->next){
             if (node->data.processID == pid){
                 head = node->next;
-                
                 return true;
             }
             if (node->next->data.processID == pid){
@@ -110,9 +109,26 @@ void ProccessList::printList(){
     else{
         ListNode* node = head;
         while (node){
-            cout << node->data.processID << endl;
+            cout << "---ПРОЦЕСС---" << endl;
+            cout << "ID: " << node->data.processID << endl;
+            cout << "Имя: " << node->data.processName << endl;
+            cout << "Статус: " << node->data.processStatus << endl;
+            cout << "Счетчик комманд: " << node->data.commandCounter << endl;
+
+            cout << "Состояние регистров:" << endl;
+            cout << "RAX: " << node->data.regs.rax << endl;
+            cout << "RBX: " << node->data.regs.rbx << endl;
+            cout << "RCX: " << node->data.regs.rcx << endl;
+            cout << "RDX: " << node->data.regs.rdx << endl;
+            cout << "RIP: " << node->data.regs.rip << endl;
+            cout << "ESP: " << node->data.regs.esp << endl;
+            cout << "EBP: " << node->data.regs.ebp << endl;
+            cout << "EFLAGS: " << node->data.regs.eflags << endl;
+            
             node = node->next;
+
         }
+        cout << endl;
         
     }  
 }
